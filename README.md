@@ -1,38 +1,63 @@
-p01_mod_arg:
+# p01_mod_arg
 
-   * Show how to code input argument
+A simple demo project showing:
 
-   * Show how to code and run module and sub-module
+* Python package and subpackage structure
+* Command-line arguments with `argparse`
+* Running packages with `python -m`
+* Execution order of `__init__.py` and `__main__.py`
+* A simple Git branching workflow
 
-   * Show git branchs framework:
+## Git Branches
 
-      - main: the main release
+* `main` – stable release
+* `dev` – development branch
+* `fea-*` – feature branches
 
-      - dev: in development for next release
+## Getting Started
 
-      - fea: other team member working on
-   
-   * How to run the demo:
+Clone the repository:
 
-      - git clone https://github.com/jundong123/pyfun
-   
-      - cd p01_mod_arg
+```bash
+git clone https://github.com/jundong123/pyfun.git
+cd pyfun/p01_mod_arg
+```
 
-      - export PYTHONPATH=$PYTHONPATH:\`pwd\`
-   
-      - cd {any_where_you_want}
-   
-      - python -m packages.mod_arg -h  # for help info
-   
-      - try different input arguments
-   
-   * Notes:
-   
-        - the code run order, especially "__init__" functions
-     
-        - python "-m" option
-     
-        - packages.mod_arg, it is "." here, not "/"
-     
-        - why and when to use this frame?
-  
+Set `PYTHONPATH`:
+
+```bash
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+```
+
+You can now run the demo from **any directory**.
+
+## Run
+
+Show help:
+
+```bash
+python -m packages.mod_arg -h
+```
+
+Try different command-line options:
+
+```bash
+python -m packages.mod_arg
+python -m packages.mod_arg -d
+python -m packages.mod_arg -t
+python -m packages.mod_arg --cfg config.yaml
+```
+
+## Notes
+
+* `python -m` runs a Python **package/module**, not a file.
+* Use package notation with **`.`**, not file paths with `/`.
+
+```text
+packages.mod_arg    ✓
+packages/mod_arg    ✗
+```
+
+* Observe the execution order of `__init__.py` and `__main__.py`.
+* Compare `python script.py` with `python -m packages.mod_arg`.
+* This package structure is recommended for medium and large Python projects because it supports clean imports, modular code, and easier maintenance.
